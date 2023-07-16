@@ -1,16 +1,17 @@
 import java.util.Scanner;
 
 public class DepositCalculator {
-
+//здесь, думаю не нужно пропускать строчку
     double calculateComplexPercent(double a, double y, int d) {
         double pay = a * Math.pow((1 + y / 12), 12 * d);
-          return rnd(pay, 2);
+          return rnd(pay, 2); 
     }
 
     double calculateSimplePercent(double amount, double yearRate, int depositPeriod) {
         return rnd(amount+amount * yearRate * depositPeriod, 2);
     }
-
+ //Не стоит также использовать сокращения слов, они затрудняют понимание кода и могут ввести в заблуждение.
+ //Например, rnd можно прочитать и как random, и как round. 
     double rnd(double value, int places) {
         double scale = Math.pow(10, places);
         return Math.round(value*scale) / scale;
@@ -32,7 +33,7 @@ public class DepositCalculator {
         action = userInput.nextInt();
         double out = 0;
 
-          if (action == 1) {
+          if (action == 1) {//здесь стоит два пробела, рекомендовали три
               out = calculateSimplePercent(amount, 0.06, period);
           } else if (action == 2) {
               out = calculateComplexPercent(amount, 0.06, period);
@@ -44,3 +45,4 @@ public class DepositCalculator {
         new DepositCalculator().calculateOutcome();
     }
 }
+//Отличный код-стайл, все читаемои мпонятно
